@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    @@include('template/head.html')
+</head>
+
+<body>
+    @@include('template/header.html')
+
+    <div class="container">
+        <section class="row">
+            <div class="col-12">
+                <h1 class="section-title text-center">Форма обратной связи</h1>
+                <div class="contact-form-wrapper">
+                    <div role="form" class="wpcf7" id="wpcf7-f91-o1" lang="ru-RU" dir="ltr">
+                        <div class="screen-reader-response"></div>
+                        <form action="/intensiv/weddings/wed1/#wpcf7-f91-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                            <div style="display: none;">
+                                <input type="hidden" name="_wpcf7" value="91">
+                                <input type="hidden" name="_wpcf7_version" value="5.0.3">
+                                <input type="hidden" name="_wpcf7_locale" value="ru_RU">
+                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f91-o1">
+                                <input type="hidden" name="_wpcf7_container_post" value="0">
+                            </div>
+                            <p>
+                                <label> Ваше имя (обязательно)
+                                    <br>
+                                    <input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                        aria-required="true" aria-invalid="false"> </label>
+                            </p>
+                            <p>
+                                <label> Ваш e-mail (обязательно)
+                                    <br>
+                                    <input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                        aria-required="true" aria-invalid="false"> </label>
+                            </p>
+                            <p>
+                                <label> Тема
+                                    <br>
+                                    <input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"> </label>
+                            </p>
+                            <p>
+                                <label> Сообщение
+                                    <br>
+                                    <textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea> </label>
+                            </p>
+                            <p>
+                                <label> Ссылка на вашу страницу Вконтакте
+                                    <br>
+                                    <input type="url" name="url-367" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-url wpcf7-validates-as-url"
+                                        aria-invalid="false">
+                                </label>
+                            </p>
+                            <p>
+                                <label> Ваш номер телефона
+                                    <br>
+                                    <input type="tel" name="tel-24" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-tel"
+                                        aria-invalid="false">
+                                </label>
+                            </p>
+                            <p>
+                                <input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit">
+                            </p>
+                            <div class="wpcf7-response-output wpcf7-display-none"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    @@include('template/footer.html') @@include('template/scripts.html')
+</body>
+
+</html>

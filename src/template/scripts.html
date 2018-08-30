@@ -1,0 +1,73 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="js/lightbox.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script> -->
+<!-- <script src="/js/jquery.mousewheel.min.js"></script> -->
+<!-- <script src="/js/lightgallery-all.min.js"></script> -->
+
+<script type="text/javascript">
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+    });
+
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+            items: 1,
+            autoWifth: true,
+            autoplay: true,
+            loop: true,
+            nav: true,
+            navContainer: '.wed-nav-container'
+        });
+    });
+
+    // var $grid = $('.grid').imagesLoaded(function () {
+    //     $grid.masonry({
+    //         itemSelector: '.grid-item',
+    //         percentPosition: true,
+    //         columnWidth: '.grid-item',
+    //         gutter: 10,
+    //         horizontalOrder: true,
+    //         percentPosition: true,
+    //         fitWidth: true
+    //     });
+    // });
+
+    //рабочий масонри https://codepen.io/desandro/pen/bdgRzg
+    //https://codepen.io/WixelHQ/pen/dGQyeb
+
+    // $(document).ready(function () {
+    //     $('#lightgallery').lightGallery({
+    //         selector: '.grid-item'
+    //     });
+    // });
+
+    var $grid = $('.grid').imagesLoaded(function () {
+        $grid.masonry({
+            itemSelector: '.grid-item',
+            columnWidth: '.grid-sizer',
+            percentPosition: true
+        });
+    });
+
+    $(function(){
+        lightbox.option({
+            'resizeDuration': 200,
+            // 'wrapAround': true
+        })
+    });
+
+    $(function(){
+        $('.menu-item>a[href$="#"]').click(function(e)
+        {
+            e.preventDefault();
+            return false;
+        });
+    });
+</script>

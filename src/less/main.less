@@ -1,0 +1,677 @@
+@import "import/_fonts.less";
+
+html,
+body {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300;
+    height: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.top-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main-content-wrapper {
+    flex: 1 0 auto;
+}
+
+.footer-wrapper {
+    flex: 0 0 auto;
+}
+
+.header-wrapper {
+    background-color: #f2f2f2;
+}
+
+.socials {
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 8px;
+    &__link {
+        color: #303030;
+        display: block;
+        align-self: center;
+    }
+    &__item {
+        margin: 0 12px;
+        &:hover {
+            text-shadow: 0px 0px 2px #303030;
+        }
+    }
+}
+
+.phone {
+    display: flex;
+    justify-content: flex-end;
+    &__text {
+        font-size: 11px;
+        letter-spacing: 3px;
+        margin-right: 15px;
+        margin-top: 0;
+        font-weight: 700;
+    }
+}
+
+.top-row {
+    padding-bottom: 50px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    &__text {
+        font-size: 30px;
+        letter-spacing: 10px;
+        margin-bottom: 0;
+        &::before {
+            //   content: "-RK-";
+            font-family: Aref Ruqaa, serif;
+            color: #303030;
+            position: absolute;
+            right: 340px;
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+    }
+    &__desc {
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-top: 7px;
+        position: relative;
+        right: 60px;
+        letter-spacing: 8px;
+    }
+}
+
+//MENU START
+.burger-check {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    @burger--thickness: 4px;
+    .burger {
+        @width: 28px;
+        display: inline-block;
+        border: 0;
+        background: none;
+        outline: 0;
+        padding: 0;
+        margin-top: 20px;
+        margin-left: 20px;
+        cursor: pointer;
+        border-bottom: @burger--thickness solid currentColor;
+        width: @width;
+        transition: border-bottom 1s ease-in-out;
+        -webkit-transition: border-bottom 1s ease-in-out; // Fix for extra space in Firefox
+        &::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+        &:before {
+            content: "";
+            display: block;
+            border-bottom: @burger--thickness solid currentColor;
+            width: 100%;
+            margin-bottom: 5px;
+            transition: transform 0.5s ease-in-out;
+            -webkit-transition: -webkit-transform 0.5s ease-in-out;
+        }
+        &:after {
+            content: "";
+            display: block;
+            border-bottom: @burger--thickness solid currentColor;
+            width: 100%;
+            margin-bottom: 5px;
+            transition: transform 0.5s ease-in-out;
+            -webkit-transition: -webkit-transform 0.5s ease-in-out;
+        }
+    }
+    .burger-check:checked~.burger {
+        border-bottom: @burger--thickness solid transparent;
+        transition: border-bottom 0.8s ease-in-out;
+        -webkit-transition: border-bottom 0.8s ease-in-out;
+        &:before {
+            transform: rotate(-405deg) translateY(1px) translateX(-3px);
+            -webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);
+            transition: transform 0.5s ease-in-out;
+            -webkit-transition: -webkit-transform 0.5s ease-in-out;
+        }
+        &:after {
+            transform: rotate(405deg) translateY(-4px) translateX(-5px);
+            -webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);
+            transition: transform 0.5s ease-in-out;
+            -webkit-transition: -webkit-transform 0.5s ease-in-out;
+        }
+    } // * * * Navigation * * *
+    @navigation__transition: max-height 0.5s ease-in-out;
+    .main-menu-holder {
+        overflow: hidden;
+        max-height: 0;
+        transition: @navigation__transition;
+    }
+    .burger-check:checked~.main-menu-holder {
+        max-height: 500px;
+        transition: @navigation__transition;
+    }
+}
+
+//
+.main-menu-holder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media (min-width: 769px) and (max-width:992px) {
+        margin-top: 20px;
+    }
+    &>.nav-menu {
+        padding-left: 0;
+        @media (max-width: 992px) {
+            justify-content: center;
+            margin-top: 0;
+        }
+    }
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    @media (max-width: 768px) {
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+.nav-menu .menu-item {
+    list-style: none;
+    margin: 0 14px;
+}
+
+.nav-menu .menu-item>a {
+    color: #303030;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 500;
+    &:hover {
+        color: #866700;
+    }
+}
+
+.sub-menu .menu-item {
+    margin: 0;
+}
+
+.menu-item>.sub-menu {
+    display: none;
+    width: max-content;
+    position: absolute;
+    padding: 5px;
+    padding-left: 0;
+    @media (max-width: 768px) {
+        position: static;
+    }
+}
+
+.menu-item:hover>.sub-menu {
+    display: block;
+}
+
+// MENU END
+.logo {
+    font-family: "Playfair Display", serif;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #517a8a;
+}
+
+//wedding
+.wedding {
+    margin-top: 30px;
+    &__text {
+        font-weight: 300;
+    }
+    &__big-image-holder {
+        background-color: #f1f1f1;
+        padding: 30px;
+        @media (max-width: 992px) {
+            margin-top: 30px;
+        }
+    }
+    &__big-image {
+        height: 600px;
+        width: 100%;
+        background-position: center center;
+        background-size: cover;
+    }
+}
+
+.wedding-video-bg {
+    &:before {
+        display: block;
+        position: absolute;
+        content: "";
+        background-color: #527a8a1a;
+        width: 360px;
+        height: 200px;
+        z-index: -10;
+        left: 30px;
+        @media (max-width: 1200px) {
+            width: 300px;
+            height: 170px;
+            top: 20px;
+            left: 25px;
+        }
+        @media (max-width: 992px) {
+            width: 413px;
+            height: 224px;
+            top: -6px;
+            left: 161px;
+        }
+        @media (max-width: 768px) {
+            content: none;
+        }
+    }
+    @media (max-width: 992px) {
+        position: relative;
+        top: 0;
+    }
+}
+
+.wed-nav-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 400px;
+    z-index: 100;
+}
+
+.owl-prev,
+.owl-next {
+    outline: none;
+    background: none;
+    border: none;
+    font-size: 50px;
+    margin: 0 30px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    &:hover {
+        transform: scale(1.3);
+        transition: 0.1s;
+    }
+}
+
+.video-section {
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+//bottom gallery
+.photo-section {
+    margin-top: 60px;
+}
+
+.grid-wrap {
+    // font-family: sans-serif;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+.grid * {
+    box-sizing: border-box;
+}
+
+/* clearfix */
+
+.grid:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+    width: 25%;
+}
+
+.grid-item {
+    height: 200px;
+    float: left;
+    background-color: #f4f3f4;
+    border: 4px solid #f1f1f1;
+    -webkit-filter: grayscale(70%) blur(0.5px);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    background-size: cover;
+    background-position: center center;
+    transition: all 0.35s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+        z-index: 100;
+    }
+}
+
+.grid-item:hover {
+    cursor: pointer;
+    filter: grayscale(0%) blur(0);
+}
+
+.grid-alpha {
+    display: none;
+    position: absolute;
+    background-color: #f4f3f4;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.grid-alpha:hover {
+    cursor: zoom-out;
+}
+
+.grid-item.item-opened {
+    width: 80%;
+    height: 80vw;
+    border: 3px solid #e8e8e8;
+    filter: grayscale(0%) blur(0);
+}
+
+.grid-item--width2 {
+    width: 50%;
+}
+
+.grid-item--height2 {
+    height: 400px;
+}
+
+.grid-item--height3 {
+    height: 600px;
+}
+
+@media only screen and (max-width: 580px) {
+    .grid-item {
+        width: 50%;
+    }
+    .grid-item--width2 {
+        width: 100%;
+    }
+}
+
+//tesmonials
+.testimon-section {
+    margin-top: 60px;
+    margin-bottom: 50px;
+    &>.section-title {
+        text-align: center;
+    }
+}
+
+.testimon__item {
+    margin-bottom: 30px;
+}
+
+.testimon__item-text {
+    margin-bottom: 20px;
+}
+
+.testimon__item-photo-wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    @media (max-width: 576px) {
+        display: none;
+    }
+}
+
+.testimon__item-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0px 4px 6px #c5c5c5;
+}
+
+//call me
+.call-me{
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    width: 90%;
+    margin: 40px auto;
+
+    & a{
+        text-decoration: none;
+        color: #af7b7b;
+    }
+}
+
+//footer
+.footer-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #f1f1f1;
+    text-align: center;
+    background-color: #303030; // height: 100px;
+}
+
+.footer-section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__title {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    &__desc {
+        font-size: 10px;
+        font-weight: 300;
+        &>p {
+            margin: 5px;
+        }
+    }
+}
+
+.no-item {
+    filter: none;
+    cursor: default;
+    padding: 0 30px;
+    &:hover {
+        cursor: default;
+        transform: none;
+    }
+}
+
+.see-more {
+    color: #303030;
+    text-decoration: none;
+    text-align: right;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+//WEDDINGS PAGE
+.wedding-page__top-text-wrap {
+    & p,
+    & h1 {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+.portfolio-item {
+    height: 450px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 20px 0;
+    &__link {
+        height: 100%;
+        text-decoration: none;
+        color: #000;
+    }
+    &:hover &__inner {
+        opacity: 1;
+        transition: opacity 0.8s;
+        transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    &__image-bg {
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: cover;
+        height: 100%;
+        padding: 6px;
+        border-radius: 2px;
+        box-shadow: 2px -1px 1px #b2b2b2;
+    }
+    &__title {
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 150px;
+    }
+    &__see-more-wrap {
+        display: flex;
+        justify-content: center;
+    }
+    &__see-more {
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 100px;
+        background-color: #9e9e9e;
+        padding: 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #fff;
+    }
+    &__inner {
+        opacity: 0;
+        transition: opacity 0.8s;
+        transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background-color: #f2f2f2;
+        height: 100%;
+        color: rgb(107, 103, 100);
+    }
+}
+
+//PAGINATION
+.page-numbers {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 2px 0 0;
+    border: 1px solid #eee;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+.nav-links a {
+    color: #303030;
+}
+
+.page-numbers.current,
+a.page-numbers:hover {
+    background: #f9f9f9;
+}
+
+.navigation.pagination {
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.wedding-post__video {
+    margin-bottom: 30px;
+}
+
+//CONTACTS
+.contact-form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+// Contact Form 7 Styles
+.wpcf7 {
+    text-align: left;
+    width: 90%;
+    padding: 20px 25px !important;
+    padding-bottom: 0px !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-position: center;
+    background-size: cover;
+
+    & p{
+        font-size: 16px;
+        font-family: 'Roboto', sans-serif;
+    }
+}
+
+.wpcf7-text,
+.wpcf7-textarea {
+    width: 100%;
+    border: 1px solid #e4e4e4;
+    border-radius: 4px;
+    color: #777;
+
+}
+
+.wpcf7-text {
+    height: 50px;
+    padding-left: 10px;
+}
+
+.wpcf7-text:focus,
+.wpcf7-textarea:focus {
+    border-color: #5A3D3D;
+}
+
+.wpcf7-submit {
+    font-size: 15px;
+    padding: 20px;
+    background: #7E7E7E;
+    background-color: #1d2731;
+    font-weight: bold;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    width: 100%;
+    &:hover {
+        background: #5F5F5F;
+        cursor: pointer;
+        border-color: transparent;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+/*Response messages - Error & Success*/
+.wpcf7-response-output {
+    margin-bottom: 30px !important;
+}
+
+.wpcf7-form p {
+    color: #000;
+}
